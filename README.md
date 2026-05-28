@@ -1,6 +1,11 @@
 A Wordsearch made in java using javaFX and more. A group project for APCSA.
 
+
+
 Repo was forked from JavaFX, but has left the fork network.
+
+
+
 
 How to start the virtual display and open your window:
 
