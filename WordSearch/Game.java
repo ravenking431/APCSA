@@ -1,15 +1,53 @@
 import java.util.Arrays;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class Game {
-    private int size;
-    private int numberOfWords;
-    private String[] words;
+    protected String[] words = new String[1525];
+    protected String[] alphabet = new String[25];
 
-    public Game(int size, int numberOfWords, String textFile) {
-     {
-        this.size = size;
-        this.numberOfWords = numberOfWords;
-        this.words = words;
+    public Game() {
+        fillWords();
+        fillAlphabet();
     }
 
+   public void fillWords() {
+    try {
+        File file = new File("Words.txt");
+        Scanner scanner = new Scanner(file);
+        int index = 0;
+        while (scanner.hasNextLine() && index < words.length) {
+            words[index] = scanner.nextLine();
+            index++;
+        }
+        scanner.close();
+    } catch (FileNotFoundException e) {
+        System.out.println("An error occurred while reading the file: " + e.getMessage());
     }
+   }
+
+   public void fillAlphabet() {
+    try {
+        File file = new File("Alphabet.txt");
+        Scanner scanner = new Scanner(file);
+        int index = 0;
+        while (scanner.hasNextLine() && index < alphabet.length) {
+            alphabet[index] = scanner.nextLine();
+            index++;
+        }
+        scanner.close();
+    } catch (FileNotFoundException e) {
+        System.out.println("An error occurred while reading the file: " + e.getMessage());
+    }
+}
+
+    public int getRandomNumber() {
+        return (int)(Math.random() *25);
+    }
+
+    public String getRandomLetter() {
+        return alphabet[getRandomNumber()];
+    }   
+   
 }
