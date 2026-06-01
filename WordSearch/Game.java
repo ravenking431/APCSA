@@ -14,7 +14,7 @@ public class Game {
 
    public void fillWords() {
     try {
-        File file = new File("Words.txt");
+        File file = new File("WordSearch/Words.txt");
         Scanner scanner = new Scanner(file);
         int index = 0;
         while (scanner.hasNextLine() && index < words.length) {
@@ -29,7 +29,7 @@ public class Game {
 
    public void fillAlphabet() {
     try {
-        File file = new File("Alphabet.txt");
+        File file = new File("WordSearch/Alphabet.txt");
         Scanner scanner = new Scanner(file);
         int index = 0;
         while (scanner.hasNextLine() && index < alphabet.length) {
