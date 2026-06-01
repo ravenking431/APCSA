@@ -82,10 +82,34 @@ public class GameBoard extends Game {
         }
     }
 
+    public boolean canPlaceDiagonal(String word, int row, int col) {
+        if (row + word.length() > size || col + word.length() > size) {
+            return false;
+        }
+        for (int i = 0; i < word.length(); i++) {
+            if (board[row + i][col + i] != null && !board[row + i][col + i].equals(String.valueOf(word.charAt(i)))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void placeHorizontal(String word, int row, int col) {
         for (int i = 0; i < word.length(); i++) {
             board[row][col + i] = String.valueOf(word.charAt(i));
         }
+    }
+
+    public boolean canPlaceHorizontal(String word, int row, int col) {
+        if (col + word.length() > size) {
+            return false;
+        }
+        for (int i = 0; i < word.length(); i++) {
+            if (board[row][col + i] != null && !board[row][col + i].equals(String.valueOf(word.charAt(i)))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void placeVertical(String word, int row, int col) {
@@ -94,5 +118,39 @@ public class GameBoard extends Game {
         }
     }
 
-   
-}
+    public boolean canPlaceVertical(String word, int row, int col) {
+        if (row + word.length() > size) {
+            return false;
+        }
+        for (int i = 0; i < word.length(); i++) {
+            if (board[row + i][col] != null && !board[row + i][col].equals(String.valueOf(word.charAt(i)))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void placeWords() {
+        for (int a = 0; a < targetWords.length; a++) {
+                boolean placed = false;
+                while (!placed) {
+                int row = 0;
+                int col = 0;
+                if (canPlaceDiagonal(targetWords[a], row, col)) {
+                    placeDiagonal(targetWords[a], row, col);
+                    placed = true;
+                } else if (canPlaceHorizontal(targetWords[a], row, col)) {
+                    placeHorizontal(targetWords[a], row, col);
+                    placed = true;
+                } else if (canPlaceVertical(targetWords[a], row, col)) {
+                    placeVertical(targetWords[a], row, col);
+                    placed = true;
+                } else {
+                    row++;
+                    col++;
+                }
+          }
+        }
+    }
+
+    }

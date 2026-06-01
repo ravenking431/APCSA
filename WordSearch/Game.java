@@ -43,7 +43,11 @@ public class Game {
 }
 
     public int getRandomNumber() {
-        return (int)(Math.random() *25);
+        return (int)(Math.random() * 25);
+    }
+
+    public int getRandomNumber(int limit) {
+        return (int)(Math.random() * limit);
     }
 
     public String getRandomLetter() {
