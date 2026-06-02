@@ -6,12 +6,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-//take the size from the GameBoard class so that it can autoajust to whatever is inputted
+//take the size from the GameBoard class so that it can autoadjust to whatever is inputted
 //take the list of randomly generated words and take their letters displaying them in each gridspace, then fill the rest with random letters
 //add the list of words at the bottom of the screen 
 //add an interactable ui that crosses out words when you drag over them, if they're proper
 //crosses them out at the bottom as well
-
+//maybe tjust take the results from what is printed at the terminal
 
 
 
@@ -27,7 +27,7 @@ public class HelloFX extends Application {
     //     stage.show();
     // }
 
-    private final Button[][] buttons = new Button[3][3];
+    private final Button[][] buttons = new Button[10][20];
     private boolean xTurn = true;
     private boolean gameOver = false;
     private final Label status = new Label("X's turn");
@@ -36,11 +36,11 @@ public class HelloFX extends Application {
     public void start(Stage stage) {
         GridPane board = new GridPane();
 
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
+        for (int row = 0; row < 10; row++) { //14 max reccomended,10 if we wants words at the bottom,these adjusts the grid size, max of whatever the button array is set to
+            for (int col = 0; col < 20; col++) { //20 max reccomended 
                 Button button = new Button("");
-                button.setPrefSize(120, 120);
-                button.setStyle("-fx-font-size: 36px;");
+                button.setPrefSize(60, 60); //adjusts the button size
+                button.setStyle("-fx-font-size: 25px;"); //font of the text in the buttons
 
                 final int r = row;
                 final int c = col;
@@ -60,8 +60,8 @@ public class HelloFX extends Application {
         root.setCenter(board);
         root.setBottom(reset);
 
-        Scene scene = new Scene(root, 360, 420);
-        stage.setTitle("The Best WordSearch Game");
+        Scene scene = new Scene(root, 1100, 690); //adjusts the window size
+        stage.setTitle("The Best WordSearch Game"); //adjusts the window pane of text
         stage.setScene(scene);
         stage.show();
     }
