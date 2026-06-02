@@ -26,7 +26,9 @@ public class GameBoard extends Game {
     }
 
     public void fillLetter(int row, int col) {
-        board[row][col] = getRandomLetter();
+        if (board[row][col] == null) {
+            board[row][col] = getRandomLetter();
+        }
     }
 
     public void getWords(int numberOfWords) {
@@ -98,7 +100,7 @@ public class GameBoard extends Game {
         for (int i = 0; i < word.length(); i++) {
             board[row][col + i] = String.valueOf(word.charAt(i));
         }
-    }
+    } 
 
     public boolean canPlaceHorizontal(String word, int row, int col) {
         if (col + word.length() > size) {
@@ -132,25 +134,28 @@ public class GameBoard extends Game {
 
     public void placeWords() {
         for (int a = 0; a < targetWords.length; a++) {
-                boolean placed = false;
-                while (!placed) {
-                int row = 0;
-                int col = 0;
-                if (canPlaceDiagonal(targetWords[a], row, col)) {
-                    placeDiagonal(targetWords[a], row, col);
+            String word = targetWords[a];
+            boolean placed = false;
+            while (!placed) {
+                int direction = getRandomNumber(3);
+                int row = getRandomNumber(size);
+                int col = getRandomNumber(size);
+                if (direction == 0 && canPlaceDiagonal(word, row, col)) {
+                    placeDiagonal(word, row, col);
                     placed = true;
-                } else if (canPlaceHorizontal(targetWords[a], row, col)) {
-                    placeHorizontal(targetWords[a], row, col);
+                } else if (direction == 1 && canPlaceHorizontal(word, row, col)) {
+                    placeHorizontal(word, row, col);
                     placed = true;
-                } else if (canPlaceVertical(targetWords[a], row, col)) {
-                    placeVertical(targetWords[a], row, col);
+                } else if (direction == 2 && canPlaceVertical(word, row, col)) {
+                    placeVertical(word, row, col);
                     placed = true;
-                } else {
-                    row++;
-                    col++;
                 }
-          }
+            }
+            if (!placed) {
+                System.out.println("Could not place the word: " + word);
+            }
         }
     }
+  
 
     }
