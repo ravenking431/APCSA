@@ -1,11 +1,13 @@
 import java.util.Random;
 import java.util.Arrays;
+import java.util.ArrayList;
 public class GameBoard extends Game {
    
     private int size;
     private int numberOfWords;
     private String[][] board;
     private String[] targetWords;
+    ArrayList<Integer> usedIndices = new ArrayList<>();
 
     public GameBoard(int size, int numberOfWords) {
         this.size = size;
@@ -34,12 +36,23 @@ public class GameBoard extends Game {
     public void getWords(int numberOfWords) {
         int a = 0;
         while (a < numberOfWords) {
-            String word = words[getRandomNumber()];
-            if (word.length() <= size && !Arrays.asList(targetWords).contains(word)) {
-                targetWords[a] = word;
+            int randomIndex = getRandomNumber(words.length);
+            String word = words[randomIndex];
+            if (word.length() <= size && !isMatch(randomIndex)) {
+                usedIndices.add(randomIndex);
+                targetWords[a] = word.toUpperCase();
                 a++;
             }
         }
+    }
+
+    public boolean isMatch(int number) {
+        for (int a = 0; a < usedIndices.size(); a++) {
+            if (usedIndices.get(a) == number) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void sortWordsByLength(String[] words) {
