@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 //add the list of words at the bottom of the screen 
 //add an interactable ui that crosses out words when you drag over them, if they're proper
 //crosses them out at the bottom as well
-//maybe tjust take the results from what is printed at the terminal
+//just take the array that has everything already inputted in it
 
 
 
@@ -71,7 +71,7 @@ public class HelloFX extends Application {
             return;
         }
 
-        buttons[row][col].setText(xTurn ? "X" : "O");
+        buttons[row][col].setText(xTurn ? "Q" : "A"); //adjusts the text that appears in the buttons
 
         if (hasWinner()) {
             status.setText((xTurn ? "X" : "O") + " wins!");

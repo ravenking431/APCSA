@@ -9,7 +9,7 @@ Repo was forked from JavaFX, but has left the fork network.
 
 How to start the virtual display and open your window:
 
-paste 
+#paste, ctrl+shift+v. Not ctrl +v
 
 pkill Xvfb || true
 pkill fluxbox || true
