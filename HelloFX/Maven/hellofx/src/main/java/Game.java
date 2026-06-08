@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Game {
+
+    // Class done by Elizabeth
+
     protected String[] words = new String[1525]; // Array to store the list of words that can be used in the game, 
                                             // which is filled by reading from a file.
     protected String[] alphabet = new String[25]; // Array to store the letters of the alphabet, which is filled by reading from a file.

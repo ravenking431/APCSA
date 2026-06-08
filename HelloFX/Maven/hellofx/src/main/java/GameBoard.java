@@ -2,6 +2,8 @@ import java.util.Random;
 import java.util.Arrays;
 import java.util.ArrayList;
 public class GameBoard extends Game {
+
+    // Class done by Elizabeth
    
     private int size; // Size of the game board (e.g., 10 for a 10x10 board)
     private int numberOfWords; // Number of words to be placed on the board
