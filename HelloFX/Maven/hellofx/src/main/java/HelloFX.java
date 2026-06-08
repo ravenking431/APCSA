@@ -11,6 +11,8 @@ import java.util.Map; //imports dependencies
 //look at the README.MD on how to run the program
 public class HelloFX extends Application { 
 
+    // Class done by Duncan
+
     private final Button[][] buttons = new Button[20][20]; // 2D array to store the buttons representing the game board
     private final Map<String, Label> wordLabels = new HashMap<>(); // Map to store the labels for the target words
     private int startRow = -1; // Variables to track the starting position of a word selection
