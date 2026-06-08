@@ -205,6 +205,10 @@ public class GameBoard extends Game {
             }
         }
     }
-  
-
+    public String[][] getBoard() {
+        return board;
     }
+    public String[] getTargetWords() {
+        return targetWords;
+    }
+}

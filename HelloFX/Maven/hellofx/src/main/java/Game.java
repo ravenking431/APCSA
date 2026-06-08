@@ -19,7 +19,7 @@ public class Game {
     // if the file is not found, it catches the FileNotFoundException and prints an error message.
    public void fillWords() {
     try {
-        File file = new File("WordSearch/Words.txt");
+        File file = new File("/workspaces/APCSA/HelloFX/Maven/hellofx/src/main/resources/Words.txt");
         Scanner scanner = new Scanner(file);
         int index = 0;
         while (scanner.hasNextLine() && index < words.length) {
@@ -37,7 +37,7 @@ public class Game {
      // if the file is not found, it catches the FileNotFoundException and prints an error message.
    public void fillAlphabet() {
     try {
-        File file = new File("WordSearch/Alphabet.txt");
+        File file = new File("/workspaces/APCSA/HelloFX/Maven/hellofx/src/main/resources/Alphabet.txt");
         Scanner scanner = new Scanner(file);
         int index = 0;
         while (scanner.hasNextLine() && index < alphabet.length) {

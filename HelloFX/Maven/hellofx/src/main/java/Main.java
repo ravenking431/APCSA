@@ -4,7 +4,7 @@ public class Main {
         GameBoard test = new GameBoard(20, 15);
 
        test.placeWords();
-    //    test.fillBoard();
+        test.fillBoard();
         test.displayBoard();
         test.displayTargetWords();
     }
