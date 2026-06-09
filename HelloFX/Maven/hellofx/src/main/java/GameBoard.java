@@ -44,7 +44,7 @@ public class GameBoard extends Game {
 
     // traverses the list of available words and randomly selects words to be placed on the game board 
     // until the specified number of words is reached. It ensures that the selected words fit within 
-    // the board size and that there are no duplicate words by checking against the usedIndices list.
+    // the board size by checking their length and that there are no duplicate words by checking against the usedIndices list.
     public void getWords(int numberOfWords) {
         int a = 0;
         while (a < numberOfWords) {
