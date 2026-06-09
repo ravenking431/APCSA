@@ -73,6 +73,7 @@ public class GameBoard extends Game {
     // sorts the targetWords array so that the longest words are placed on the game board first 
     // in order to use the game board space more efficiently; increasing the chances of 
     // successfully placing all the words on the board.
+    // sorts using a bubble sort algorithm
     public void sortWordsByLength(String[] words) {
         for (int i = 0; i < words.length - 1; i++) {
             for (int j = i + 1; j < words.length; j++) {
